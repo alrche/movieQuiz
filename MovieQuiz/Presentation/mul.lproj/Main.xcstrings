@@ -1,0 +1,66 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "0yb-DC-hdA.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Да\"; ObjectID = \"0yb-DC-hdA\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Да"
+          }
+        }
+      }
+    },
+    "2TE-7D-DKf.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Рейтинг этого фильма ниже чем 5?\"; ObjectID = \"2TE-7D-DKf\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Рейтинг этого фильма ниже чем 5?"
+          }
+        }
+      }
+    },
+    "lh2-vN-FIB.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Нет\"; ObjectID = \"lh2-vN-FIB\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Нет"
+          }
+        }
+      }
+    },
+    "Z2C-s3-BUW.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Вопрос:\"; ObjectID = \"Z2C-s3-BUW\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Вопрос:"
+          }
+        }
+      }
+    },
+    "ZVg-HE-dSN.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"1/10\"; ObjectID = \"ZVg-HE-dSN\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "1/10"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
