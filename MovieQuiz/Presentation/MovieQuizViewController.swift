@@ -38,15 +38,25 @@ final class MovieQuizViewController: UIViewController {
     }
 
     @IBAction private func noButtonClick(_ sender: UIButton) {
-        let currentQuestion = questions[currentQuestionIndex]
-        let givenAnswer = false
-        showAnswerResult(isCorrect: givenAnswer == currentQuestion.correctAnswer)
+        noButton.isExclusiveTouch = true
+
+        if noButton.isEnabled {
+            let currentQuestion = questions[currentQuestionIndex]
+            let givenAnswer = false
+            showAnswerResult(isCorrect: givenAnswer == currentQuestion.correctAnswer)
+            noButton.isEnabled = false
+        }
     }
 
     @IBAction private func yesButtonClick(_ sender: UIButton) {
-        let currentQuestion = questions[currentQuestionIndex]
-        let givenAnswer = true
-        showAnswerResult(isCorrect: givenAnswer == currentQuestion.correctAnswer)
+        yesButton.isExclusiveTouch = true
+
+        if yesButton.isEnabled {
+            let currentQuestion = questions[currentQuestionIndex]
+            let givenAnswer = true
+            showAnswerResult(isCorrect: givenAnswer == currentQuestion.correctAnswer)
+            yesButton.isEnabled = false
+        }
     }
 
     private func showAnswerResult(isCorrect: Bool) {
@@ -54,7 +64,6 @@ final class MovieQuizViewController: UIViewController {
             correctAnswers += 1
         }
 
-        imageView.layer.masksToBounds = true
         imageView.layer.borderWidth = 8
         imageView.layer.borderColor = isCorrect ? UIColor.ypGreen.cgColor : UIColor.ypRed.cgColor
 
@@ -99,6 +108,9 @@ final class MovieQuizViewController: UIViewController {
 
             show(quiz: viewModel)
         }
+
+        yesButton.isEnabled = true
+        noButton.isEnabled = true
     }
 
     private struct QuizStepViewModel {
