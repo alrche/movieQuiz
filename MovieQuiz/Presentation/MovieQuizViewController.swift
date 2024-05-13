@@ -34,7 +34,7 @@ final class MovieQuizViewController: UIViewController {
         textLabel.text = step.question
         imageView.image = step.image
         imageView.layer.cornerRadius = 20
-        imageView.layer.borderWidth = 8
+        imageView.layer.masksToBounds = true
     }
 
     @IBAction private func noButtonClick(_ sender: UIButton) {
@@ -55,6 +55,7 @@ final class MovieQuizViewController: UIViewController {
         }
 
         imageView.layer.masksToBounds = true
+        imageView.layer.borderWidth = 8
         imageView.layer.borderColor = isCorrect ? UIColor.ypGreen.cgColor : UIColor.ypRed.cgColor
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
