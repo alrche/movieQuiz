@@ -1,7 +1,9 @@
 import UIKit
 
-final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, AlertPresenterDelegate {
-    
+final class MovieQuizViewController: UIViewController, 
+                                     QuestionFactoryDelegate,
+                                     AlertPresenterDelegate {
+
     // MARK: - IBOutlets
     
     @IBOutlet private var titleLabel: UILabel!
@@ -31,10 +33,9 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
 
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 20
-        
-        noButton.isExclusiveTouch = true
-        yesButton.isExclusiveTouch = true
-        
+
+        noMultipleTouchForButton(isExclusive: true)
+
         let questionFactory = QuestionFactory()
         questionFactory.setup(delegate: self)
         self.questionFactory = questionFactory
@@ -134,12 +135,21 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
             currentQuestionIndex += 1
             self.questionFactory.requestNextQuestion()
         }
-        yesButton.isEnabled = true
-        noButton.isEnabled = true
+        changeStateButton(isEnabled: true)
     }
     
-    // MARK: - IBA Actions
-    
+    // MARK: - Actions For Buttons
+
+    private func changeStateButton(isEnabled: Bool) {
+        noButton.isEnabled = isEnabled
+        yesButton.isEnabled = isEnabled
+    }
+
+    private func noMultipleTouchForButton(isExclusive: Bool) {
+        noButton.isExclusiveTouch = isExclusive
+        yesButton.isExclusiveTouch = isExclusive
+    }
+
     @IBAction private func noButtonClick(_ sender: UIButton) {
         if noButton.isEnabled {
             guard let currentQuestion = currentQuestion else {
@@ -147,10 +157,10 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
             }
             let givenAnswer = false
             showAnswerResult(isCorrect: givenAnswer == currentQuestion.correctAnswer)
-            noButton.isEnabled = false
+            changeStateButton(isEnabled: false)
         }
     }
-    
+
     @IBAction private func yesButtonClick(_ sender: UIButton) {
         if yesButton.isEnabled {
             guard let currentQuestion = currentQuestion else {
@@ -158,7 +168,7 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
             }
             let givenAnswer = true
             showAnswerResult(isCorrect: givenAnswer == currentQuestion.correctAnswer)
-            yesButton.isEnabled = false
+            changeStateButton(isEnabled: false)
         }
     }
 }

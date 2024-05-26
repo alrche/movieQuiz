@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-internal protocol AlertPresenterProtocol {
+protocol AlertPresenterProtocol {
     func setup(delegate: AlertPresenterDelegate)
     func showAlert(alertData: AlertModel)
 }

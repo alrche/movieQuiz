@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-internal class ResultAlertPresenter: AlertPresenterProtocol {
+class ResultAlertPresenter: AlertPresenterProtocol {
     weak var delegate: AlertPresenterDelegate?
     
     func setup(delegate: AlertPresenterDelegate) {

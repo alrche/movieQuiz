@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal class QuestionFactory: QuestionFactoryProtocol {
+class QuestionFactory: QuestionFactoryProtocol {
     weak var delegate: QuestionFactoryDelegate?
     
     func setup(delegate: QuestionFactoryDelegate) {
@@ -56,8 +56,8 @@ internal class QuestionFactory: QuestionFactoryProtocol {
             text: "Рейтинг этого фильма больше чем 6?",
             correctAnswer: false)
     ]
-    
-    internal func requestNextQuestion() {
+
+    func requestNextQuestion() {
         guard let index = (0..<questions.count).randomElement() else {
             delegate?.didReceiveNextQuestion(question: nil)
             return

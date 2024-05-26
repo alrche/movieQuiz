@@ -7,6 +7,6 @@
 
 import Foundation
 
-internal protocol QuestionFactoryProtocol {
+protocol QuestionFactoryProtocol {
     func requestNextQuestion()
 }
