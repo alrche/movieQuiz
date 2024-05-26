@@ -28,8 +28,10 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 20
+        
         noButton.isExclusiveTouch = true
         yesButton.isExclusiveTouch = true
         
@@ -100,7 +102,6 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
         counterLabel.text = step.questionNumber
         textLabel.text = step.question
         imageView.image = step.image
-        imageView.layer.masksToBounds = true
     }
     
     private func showAnswerResult(isCorrect: Bool) {
