@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal class StatisticServiceImplementation: StatisticServiceProtocol {
+final class StatisticServiceImplementation: StatisticServiceProtocol {
     private let userDefaults = UserDefaults.standard
 
     private enum Keys: String {
@@ -58,6 +58,10 @@ internal class StatisticServiceImplementation: StatisticServiceProtocol {
         if newGame.isBetterThan(bestGame) {
             bestGame = newGame
         }
+
+        let currentGamesCount = userDefaults.integer(forKey: Keys.gamesCount.rawValue)
+        userDefaults.set(currentGamesCount + 1, forKey: Keys.gamesCount.rawValue)
+
         var correctQuestions = userDefaults.integer(forKey: Keys.correct.rawValue)
         var totalQuestions = userDefaults.integer(forKey: Keys.total.rawValue)
 
