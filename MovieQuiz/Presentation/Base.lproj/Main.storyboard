@@ -100,18 +100,24 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="FJa-T6-Uvn">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="YP Black"/>
                         <constraints>
+                            <constraint firstItem="FJa-T6-Uvn" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="PRk-BK-Rgf"/>
                             <constraint firstItem="Laa-Q2-cvP" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="SoQ-x5-hyc"/>
                             <constraint firstItem="c5o-qs-eD8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="VBn-pW-AkN"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="c5o-qs-eD8" secondAttribute="bottom" id="ePq-mD-V77"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="c5o-qs-eD8" secondAttribute="trailing" constant="20" id="fNA-Ab-aFO"/>
                             <constraint firstItem="c5o-qs-eD8" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="kB4-xQ-Mda"/>
+                            <constraint firstItem="FJa-T6-Uvn" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="m2t-Xa-A0C"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="FJa-T6-Uvn" id="eRz-62-02F"/>
                         <outlet property="counterLabel" destination="ZVg-HE-dSN" id="UhA-kY-C1m"/>
                         <outlet property="imageView" destination="GRC-hY-WRS" id="iaY-Xq-Jgw"/>
                         <outlet property="noButton" destination="lh2-vN-FIB" id="4B2-lo-amd"/>
@@ -122,7 +128,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-86.25954198473282" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="-86.956521739130437" y="3.3482142857142856"/>
         </scene>
     </scenes>
     <resources>
