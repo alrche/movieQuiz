@@ -42,14 +42,18 @@ final class MovieQuizViewController: UIViewController,
 
         showLoadingIndicator()
         questionFactory?.loadData()
+        resetStateForIndicator()
 
         self.questionFactory?.requestNextQuestion()
     }
 
     // MARK: - ActivityIndicator
 
+    private func resetStateForIndicator() {
+        activityIndicator.hidesWhenStopped = true
+    }
+
     private func showLoadingIndicator() {
-        activityIndicator.isHidden = false
         activityIndicator.startAnimating()
     }
 
@@ -80,6 +84,7 @@ final class MovieQuizViewController: UIViewController,
     // MARK: - QuestionFactoryDelegate
 
     func didReceiveNextQuestion(question: QuizQuestion?) {
+        hideLoadingIndicator()
         guard let question = question else {
             return
         }
@@ -93,11 +98,12 @@ final class MovieQuizViewController: UIViewController,
     }
 
     func didLoadDataFromServer() {
-        activityIndicator.isHidden = true
+        hideLoadingIndicator()
         questionFactory?.requestNextQuestion()
     }
 
     func didFailToLoadData(with error: Error) {
+        hideLoadingIndicator()
         showNetworkError(message: error.localizedDescription)
     }
 
@@ -163,6 +169,7 @@ final class MovieQuizViewController: UIViewController,
     }
 
     private func showNextQuestionOrResults() {
+        showLoadingIndicator()
         if currentQuestionIndex == questionsAmount - 1 {
             let text = correctAnswers == questionsAmount ?
             "Поздравляем, вы ответили на 10 из 10!" :
