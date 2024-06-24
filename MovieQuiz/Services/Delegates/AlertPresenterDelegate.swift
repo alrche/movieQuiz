@@ -2,7 +2,7 @@
 //  AlertPresenterDelegate.swift
 //  MovieQuiz
 //
-//  Created by Aliaksandr Charnyshou on 25.05.2024.
+//  Created by Aliaksandr Charnyshou on 22.06.2024.
 //
 
 import Foundation
